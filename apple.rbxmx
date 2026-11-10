@@ -1,422 +1,203 @@
 <roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
-	<Meta name="ExplicitAutoJoints">true</Meta>
-	<External>null</External>
-	<External>nil</External>
-	<Item class="Tool" referent="RBX1">
-		<Properties>
-			<bool name="CanBeDropped">false</bool>
-			<bool name="Enabled">true</bool>
-			<CoordinateFrame name="Grip">
-				<X>0.400000006</X>
-				<Y>0</Y>
-				<Z>0</Z>
-				<R00>1</R00>
-				<R01>0</R01>
-				<R02>0</R02>
-				<R10>0</R10>
-				<R11>-1</R11>
-				<R12>0</R12>
-				<R20>0</R20>
-				<R21>0</R21>
-				<R22>-1</R22>
-			</CoordinateFrame>
-			<bool name="ManualActivationOnly">false</bool>
-			<bool name="RequiresHandle">true</bool>
-			<string name="ToolTip"></string>
-			<Content name="TextureId"><url>rbxassetid://3656262517</url></Content>
-			<Content name="ExplorerIconContent">
-				<null></null>
-			</Content>
-			<token name="LevelOfDetail">0</token>
-			<CoordinateFrame name="ModelMeshCFrame">
-				<X>0</X>
-				<Y>0</Y>
-				<Z>0</Z>
-				<R00>1</R00>
-				<R01>0</R01>
-				<R02>0</R02>
-				<R10>0</R10>
-				<R11>1</R11>
-				<R12>0</R12>
-				<R20>0</R20>
-				<R21>0</R21>
-				<R22>1</R22>
-			</CoordinateFrame>
-			<SharedString name="ModelMeshData">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
-			<Vector3 name="ModelMeshSize">
-				<X>0</X>
-				<Y>0</Y>
-				<Z>0</Z>
-			</Vector3>
-			<token name="ModelStreamingMode">0</token>
-			<bool name="NeedsPivotMigration">false</bool>
-			<Ref name="PrimaryPart">null</Ref>
-			<float name="ScaleFactor">1</float>
-			<SharedString name="SlimHash">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
-			<OptionalCoordinateFrame name="WorldPivotData">
-				<CFrame>
-					<X>222.872101</X>
-					<Y>-69.3185806</Y>
-					<Z>27.4150944</Z>
-					<R00>-0.712071776</R00>
-					<R01>0.626226962</R01>
-					<R02>-0.317481041</R02>
-					<R10>-0.435990155</R10>
-					<R11>-0.0399541408</R11>
-					<R12>0.8990646</R12>
-					<R20>0.550333261</R20>
-					<R21>0.778616667</R21>
-					<R22>0.301478833</R22>
-				</CFrame>
-			</OptionalCoordinateFrame>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-			<bool name="DefinesCapabilities">false</bool>
-			<string name="Name">RedApple</string>
-			<BinaryString name="SerializedOverrides"></BinaryString>
-			<int64 name="SourceAssetId">-1</int64>
-			<SharedString name="Tags">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
-		</Properties>
-		<Item class="LocalScript" referent="RBX5">
-			<Properties>
-				<ProtectedString name="Source"><![CDATA[-- Tool LocalScript — Eat animation + tick heal (+25 capped at 100)
--- Place inside the Tool as a LocalScript. Expects:
---   Tool.Event   (RemoteEvent)
---   Tool.Eat     (Animation)
--- Server fires Event:FireServer("EatAnim") to the client to trigger the eat.
+<Meta name="ExplicitAutoJoints">true</Meta>
+<External>null</External>
+<External>nil</External>
+<Item class="Tool" referent="RBX1">
+<Properties>
+<bool name="CanBeDropped">false</bool>
+<CoordinateFrame name="Grip">
+<X>0.400000005960</X>
+<Y>0.000000000000</Y>
+<Z>0.000000000000</Z>
+<R00>1.000000000000</R00>
+<R01>0.000000000000</R01>
+<R02>0.000000000000</R02>
+<R10>0.000000000000</R10>
+<R11>-1.000000000000</R11>
+<R12>0.000000000000</R12>
+<R20>0.000000000000</R20>
+<R21>0.000000000000</R21>
+<R22>-1.000000000000</R22>
+</CoordinateFrame>
+<string name="Name">RedApple</string>
+<Content name="TextureId"><url>rbxassetid://3656262517</url></Content>
+</Properties>
+<Item class="Script" referent="RBX2">
+<Properties>
+<string name="Name">AppleScript</string>
+<ProtectedString name="Source">-- Script failed to decompile or ignored</ProtectedString>
+</Properties>
+<Item class="Sound" referent="RBX3">
+<Properties>
+<string name="Name">ChipCrunch</string>
+<Content name="SoundId"><url>rbxassetid://76885425383671</url></Content>
+<float name="Volume">1.000000000000</float>
+<float name="xmlRead_MaxDistance_3">10000.000000000000</float>
+</Properties>
+</Item>
+<Item class="Sound" referent="RBX4">
+<Properties>
+<string name="Name">AppleCrunch</string>
+<Content name="SoundId"><url>rbxassetid://115269583870503</url></Content>
+<float name="Volume">1.000000000000</float>
+<float name="xmlRead_MaxDistance_3">10000.000000000000</float>
+</Properties>
+</Item>
+</Item>
+<Item class="LocalScript" referent="RBX5">
+<Properties>
+<string name="Name">AppleLocalScript</string>
+<ProtectedString name="Source">-- Decompiled with Potassium&apos;s decompiler.
 
-local script_Parent = script.Parent
-local VREnabled     = game:GetService("VRService").VREnabled
-local LocalPlayer   = game.Players.LocalPlayer
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local script_Parent = script.Parent;
+local VREnabled = game:GetService(&quot;VRService&quot;).VREnabled;
+local LocalPlayer = game.Players.LocalPlayer;
+local Event = script_Parent:WaitForChild(&quot;Event&quot;);
+game:GetService(&quot;ReplicatedStorage&quot;);
+local u1 = nil;
+local u2 = nil;
+local u3 = nil;
+Event.OnClientEvent:connect(function(p4) -- Line: 16
+    -- upvalues: u1 (ref)
+    if p4 == &quot;EatAnim&quot; and u1 then
+        u1.Priority = Enum.AnimationPriority.Action4;
+        u1:Play();
+    end;
+end);
+script_Parent.Equipped:connect(function() -- Line: 25
+    -- upvalues: u2 (ref), u3 (ref), LocalPlayer (copy), VREnabled (copy), script_Parent (copy), u1 (ref)
+    if not (u2 and u3) then
+        u2 = LocalPlayer.Character;
+        u3 = u2:FindFirstChild(&quot;Humanoid&quot;);
+    end;
 
-local Event = script_Parent:WaitForChild("Event")
+    if u3 and not VREnabled then
+        local Eat = script_Parent:FindFirstChild(&quot;Eat&quot;);
 
-local animTrack
-local char
-local humanoid
-local healThread
+        if not u1 then
+            u1 = u3:LoadAnimation(Eat);
+        end;
+    end;
+end);</ProtectedString>
+<ProtectedString name="Source">-- Decompiled with Potassium&apos;s decompiler.
 
-local function getHealth()
-	local h = LocalPlayer:GetAttribute("Health")
-	if type(h) == "number" and h == h and h ~= math.huge and h ~= -math.huge then
-		return h
-	end
-	if humanoid and humanoid.Parent then
-		return humanoid.Health
-	end
-	return 100
-end
+local script_Parent = script.Parent;
+local VREnabled = game:GetService(&quot;VRService&quot;).VREnabled;
+local LocalPlayer = game.Players.LocalPlayer;
+local Event = script_Parent:WaitForChild(&quot;Event&quot;);
+game:GetService(&quot;ReplicatedStorage&quot;);
+local u1 = nil;
+local u2 = nil;
+local u3 = nil;
+Event.OnClientEvent:connect(function(p4) -- Line: 16
+    -- upvalues: u1 (ref)
+    if p4 == &quot;EatAnim&quot; and u1 then
+        u1.Priority = Enum.AnimationPriority.Action4;
+        u1:Play();
+    end;
+end);
+script_Parent.Equipped:connect(function() -- Line: 25
+    -- upvalues: u2 (ref), u3 (ref), LocalPlayer (copy), VREnabled (copy), script_Parent (copy), u1 (ref)
+    if not (u2 and u3) then
+        u2 = LocalPlayer.Character;
+        u3 = u2:FindFirstChild(&quot;Humanoid&quot;);
+    end;
 
-local function stopHealLoop()
-	if healThread then
-		pcall(function() task.cancel(healThread) end)
-		healThread = nil
-	end
-end
+    if u3 and not VREnabled then
+        local Eat = script_Parent:FindFirstChild(&quot;Eat&quot;);
 
-local function startHealLoop()
-	stopHealLoop()
-	healThread = task.spawn(function()
-		task.wait(2)
-		local startHP  = getHealth()
-		local targetHP = math.min(startHP + 25, 100)
-
-		local storage      = ReplicatedStorage:FindFirstChild("Storage")
-		local eventsFolder = storage and storage:FindFirstChild("Events")
-		local damageEvent  = eventsFolder and eventsFolder:FindFirstChild("Damage")
-		if not damageEvent then
-			healThread = nil
-			return
-		end
-
-		while healThread do
-			local current = getHealth()
-			if current >= targetHP then break end
-
-			local step = math.min(1, targetHP - current)
-			if step <= 0 then break end
-
-			pcall(function() damageEvent:FireServer(-step) end)
-			task.wait(0.1)
-		end
-
-		healThread = nil
-	end)
-end
-
-Event.OnClientEvent:Connect(function(msg)
-	if msg == "EatAnim" and animTrack then
-		animTrack.Priority = Enum.AnimationPriority.Action4
-		animTrack:Play()
-		startHealLoop()
-	end
-end)
-
-script_Parent.Equipped:Connect(function()
-	char = LocalPlayer.Character
-	humanoid = char and char:FindFirstChildOfClass("Humanoid")
-	if humanoid and not VREnabled then
-		local Eat = script_Parent:FindFirstChild("Eat")
-		if Eat then
-			animTrack = humanoid:LoadAnimation(Eat)
-		end
-	end
-end)
-
-script_Parent.Unequipped:Connect(function()
-	stopHealLoop()
-end)
-
-LocalPlayer.CharacterAdded:Connect(function(newChar)
-	char = newChar
-	humanoid = newChar:WaitForChild("Humanoid", 5)
-	animTrack = nil
-	stopHealLoop()
-end)]]></ProtectedString>
-				<bool name="Disabled">false</bool>
-				<Content name="LinkedSource"><null></null></Content>
-				<token name="RunContext">0</token>
-				<string name="ScriptGuid">{9B24858C-ADDE-4F5D-A804-3C5CA9E11B8E}</string>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-				<bool name="DefinesCapabilities">false</bool>
-				<string name="Name">AppleLocalScript</string>
-				<BinaryString name="SerializedOverrides"></BinaryString>
-				<int64 name="SourceAssetId">-1</int64>
-				<SharedString name="Tags">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
-			</Properties>
-		</Item>
-		<Item class="StringValue" referent="RBX6">
-			<Properties>
-				<string name="Value"></string>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-				<bool name="DefinesCapabilities">false</bool>
-				<string name="Name">toolnone</string>
-				<BinaryString name="SerializedOverrides"></BinaryString>
-				<int64 name="SourceAssetId">-1</int64>
-				<SharedString name="Tags">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
-			</Properties>
-			<Item class="Animation" referent="RBX7">
-				<Properties>
-					<Content name="AnimationId"><url>rbxassetid://77248707429954</url></Content>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-					<bool name="DefinesCapabilities">false</bool>
-					<string name="Name">ToolNoneAnim</string>
-					<BinaryString name="SerializedOverrides"></BinaryString>
-					<int64 name="SourceAssetId">-1</int64>
-					<SharedString name="Tags">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
-				</Properties>
-			</Item>
-		</Item>
-		<Item class="Animation" referent="RBX8">
-			<Properties>
-				<Content name="AnimationId"><url>rbxassetid://72470954918089</url></Content>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-				<bool name="DefinesCapabilities">false</bool>
-				<string name="Name">Eat</string>
-				<BinaryString name="SerializedOverrides"></BinaryString>
-				<int64 name="SourceAssetId">-1</int64>
-				<SharedString name="Tags">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
-			</Properties>
-		</Item>
-		<Item class="RemoteEvent" referent="RBX9">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-				<bool name="DefinesCapabilities">false</bool>
-				<string name="Name">Event</string>
-				<BinaryString name="SerializedOverrides"></BinaryString>
-				<int64 name="SourceAssetId">-1</int64>
-				<SharedString name="Tags">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
-			</Properties>
-		</Item>
-		<Item class="Part" referent="RBX10">
-			<Properties>
-				<token name="shape">1</token>
-				<token name="formFactorRaw">1</token>
-				<bool name="Anchored">false</bool>
-				<bool name="AudioCanCollide">true</bool>
-				<float name="BackParamA">-0.5</float>
-				<float name="BackParamB">0.5</float>
-				<token name="BackSurface">0</token>
-				<token name="BackSurfaceInput">0</token>
-				<float name="BottomParamA">-0.5</float>
-				<float name="BottomParamB">0.5</float>
-				<token name="BottomSurface">4</token>
-				<token name="BottomSurfaceInput">0</token>
-				<CoordinateFrame name="CFrame">
-					<X>0.00210599997</X>
-					<Y>2.52410412</Y>
-					<Z>0.00509499991</Z>
-					<R00>-0.712071776</R00>
-					<R01>0.626226962</R01>
-					<R02>-0.317481041</R02>
-					<R10>-0.435990155</R10>
-					<R11>-0.0399541408</R11>
-					<R12>0.8990646</R12>
-					<R20>0.550333261</R20>
-					<R21>0.778616667</R21>
-					<R22>0.301478833</R22>
-				</CoordinateFrame>
-				<bool name="CanCollide">false</bool>
-				<bool name="CanQuery">true</bool>
-				<bool name="CanTouch">true</bool>
-				<bool name="CastShadow">true</bool>
-				<string name="CollisionGroup">Default</string>
-				<int name="CollisionGroupId">0</int>
-				<Color3uint8 name="Color3uint8">4288914085</Color3uint8>
-				<PhysicalProperties name="CustomPhysicalProperties">
-					<CustomPhysics>false</CustomPhysics>
-				</PhysicalProperties>
-				<bool name="EnableFluidForces">true</bool>
-				<float name="FrontParamA">-0.5</float>
-				<float name="FrontParamB">0.5</float>
-				<token name="FrontSurface">0</token>
-				<token name="FrontSurfaceInput">0</token>
-				<float name="LeftParamA">-0.5</float>
-				<float name="LeftParamB">0.5</float>
-				<token name="LeftSurface">0</token>
-				<token name="LeftSurfaceInput">0</token>
-				<bool name="Locked">true</bool>
-				<bool name="Massless">true</bool>
-				<token name="Material">256</token>
-				<string name="MaterialVariantSerialized"></string>
-				<CoordinateFrame name="PivotOffset">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-					<R00>1</R00>
-					<R01>0</R01>
-					<R02>0</R02>
-					<R10>0</R10>
-					<R11>1</R11>
-					<R12>0</R12>
-					<R20>0</R20>
-					<R21>0</R21>
-					<R22>1</R22>
-				</CoordinateFrame>
-				<float name="Reflectance">0</float>
-				<float name="RightParamA">-0.5</float>
-				<float name="RightParamB">0.5</float>
-				<token name="RightSurface">0</token>
-				<token name="RightSurfaceInput">0</token>
-				<int name="RootPriority">0</int>
-				<Vector3 name="RotVelocity">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-				</Vector3>
-				<float name="TopParamA">-0.5</float>
-				<float name="TopParamB">0.5</float>
-				<token name="TopSurface">3</token>
-				<token name="TopSurfaceInput">0</token>
-				<float name="Transparency">0</float>
-				<Vector3 name="Velocity">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-				</Vector3>
-				<Vector3 name="size">
-					<X>0.869997859</X>
-					<Y>0.939999878</Y>
-					<Z>0.830000043</Z>
-				</Vector3>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-				<bool name="DefinesCapabilities">false</bool>
-				<string name="Name">Handle</string>
-				<BinaryString name="SerializedOverrides"></BinaryString>
-				<int64 name="SourceAssetId">-1</int64>
-				<SharedString name="Tags">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
-			</Properties>
-			<Item class="Sound" referent="RBX11">
-				<Properties>
-					<bool name="AcousticSimulationEnabled">true</bool>
-					<NumberRange name="LoopRegion">0 60000 </NumberRange>
-					<bool name="Looped">false</bool>
-					<bool name="PlayOnRemove">false</bool>
-					<NumberRange name="PlaybackRegion">0 60000 </NumberRange>
-					<bool name="PlaybackRegionsEnabled">false</bool>
-					<float name="PlaybackSpeed">1</float>
-					<bool name="Playing">false</bool>
-					<float name="RollOffMaxDistance">10000</float>
-					<float name="RollOffMinDistance">10</float>
-					<token name="RollOffMode">0</token>
-					<Ref name="SoundGroup">null</Ref>
-					<Content name="SoundId"><url>rbxassetid://3656416644</url></Content>
-					<double name="TimePosition">0</double>
-					<float name="Volume">1</float>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-					<bool name="DefinesCapabilities">false</bool>
-					<string name="Name">EatSound</string>
-					<BinaryString name="SerializedOverrides"></BinaryString>
-					<int64 name="SourceAssetId">-1</int64>
-					<SharedString name="Tags">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
-				</Properties>
-			</Item>
-			<Item class="Attachment" referent="RBX12">
-				<Properties>
-					<CoordinateFrame name="CFrame">
-						<X>0</X>
-						<Y>0</Y>
-						<Z>0</Z>
-						<R00>1</R00>
-						<R01>0</R01>
-						<R02>0</R02>
-						<R10>0</R10>
-						<R11>1</R11>
-						<R12>0</R12>
-						<R20>0</R20>
-						<R21>0</R21>
-						<R22>1</R22>
-					</CoordinateFrame>
-					<bool name="Visible">false</bool>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-					<bool name="DefinesCapabilities">false</bool>
-					<string name="Name">Sounds</string>
-					<BinaryString name="SerializedOverrides"></BinaryString>
-					<int64 name="SourceAssetId">-1</int64>
-					<SharedString name="Tags">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
-				</Properties>
-			</Item>
-			<Item class="SpecialMesh" referent="RBX13">
-				<Properties>
-					<token name="MeshType">5</token>
-					<Content name="MeshId"><url>http://www.roblox.com/asset/?id=64428988 </url></Content>
-					<Content name="TextureId"><url>http://www.roblox.com/asset/?id=184728499</url></Content>
-					<Vector3 name="Offset">
-						<X>0</X>
-						<Y>0</Y>
-						<Z>0</Z>
-					</Vector3>
-					<Vector3 name="Scale">
-						<X>0.600000024</X>
-						<Y>0.600000024</Y>
-						<Z>0.600000024</Z>
-					</Vector3>
-					<Vector3 name="VertexColor">
-						<X>1</X>
-						<Y>1</Y>
-						<Z>1</Z>
-					</Vector3>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-					<bool name="DefinesCapabilities">false</bool>
-					<string name="Name">Mesh</string>
-					<BinaryString name="SerializedOverrides"></BinaryString>
-					<int64 name="SourceAssetId">-1</int64>
-					<SharedString name="Tags">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
-				</Properties>
-			</Item>
-		</Item>
-	</Item>
-	<SharedStrings>
-		<SharedString md5="yuZpQdnvvUBOTYh1jqZ2cA=="></SharedString>
-	</SharedStrings>
+        if not u1 then
+            u1 = u3:LoadAnimation(Eat);
+        end;
+    end;
+end);</ProtectedString>
+</Properties>
+</Item>
+<Item class="StringValue" referent="RBX6">
+<Properties>
+<string name="Name">toolnone</string>
+</Properties>
+<Item class="Animation" referent="RBX7">
+<Properties>
+<Content name="AnimationId"><url>rbxassetid://77248707429954</url></Content>
+<string name="Name">ToolNoneAnim</string>
+</Properties>
+</Item>
+</Item>
+<Item class="Animation" referent="RBX8">
+<Properties>
+<Content name="AnimationId"><url>rbxassetid://72470954918089</url></Content>
+<string name="Name">Eat</string>
+</Properties>
+</Item>
+<Item class="RemoteEvent" referent="RBX9">
+<Properties>
+<string name="Name">Event</string>
+</Properties>
+</Item>
+<Item class="Part" referent="RBX10">
+<Properties>
+<CoordinateFrame name="CFrame">
+<X>-222.867889404297</X>
+<Y>74.366775512695</Y>
+<Z>-27.404905319214</Z>
+<R00>-0.712071776390</R00>
+<R01>0.626226961613</R01>
+<R02>-0.317481040955</R02>
+<R10>-0.435990154743</R10>
+<R11>-0.039954140782</R11>
+<R12>0.899064600468</R12>
+<R20>0.550333261490</R20>
+<R21>0.778616666794</R21>
+<R22>0.301478832960</R22>
+</CoordinateFrame>
+<bool name="CanCollide">false</bool>
+<bool name="Locked">true</bool>
+<bool name="Massless">true</bool>
+<string name="Name">Handle</string>
+<Vector3 name="RotVelocity">
+<X>0.000000000000</X>
+<Y>-0.000002980232</Y>
+<Z>-0.000000000000</Z>
+</Vector3>
+<Vector3 name="Size">
+<X>0.869997859001</X>
+<Y>0.939999878407</Y>
+<Z>0.830000042915</Z>
+</Vector3>
+<Vector3 name="Velocity">
+<X>0.000001459577</X>
+<Y>-0.000001370907</Y>
+<Z>-0.000006303611</Z>
+</Vector3>
+</Properties>
+<Item class="Sound" referent="RBX11">
+<Properties>
+<string name="Name">EatSound</string>
+<Content name="SoundId"><url>rbxassetid://3656416644</url></Content>
+<float name="Volume">1.000000000000</float>
+<float name="xmlRead_MaxDistance_3">10000.000000000000</float>
+</Properties>
+</Item>
+<Item class="Attachment" referent="RBX12">
+<Properties>
+<string name="Name">Sounds</string>
+</Properties>
+</Item>
+<Item class="SpecialMesh" referent="RBX13">
+<Properties>
+<Content name="MeshId"><url>http://www.roblox.com/asset/?id=64428988 </url></Content>
+<token name="MeshType">5</token>
+<Vector3 name="Scale">
+<X>0.600000023842</X>
+<Y>0.600000023842</Y>
+<Z>0.600000023842</Z>
+</Vector3>
+<Content name="TextureId"><url>http://www.roblox.com/asset/?id=184728499</url></Content>
+</Properties>
+</Item>
+</Item>
+</Item>
+<SharedStrings>
+</SharedStrings>
 </roblox>
